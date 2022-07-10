@@ -15,53 +15,26 @@ $person = 'data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdW
 switch( $_GET['type'] )
 {
 
-  case 'project':
+ 
+      
+  case 'resume':
     
-    $query = 'SELECT photo 
-      FROM projects
+    $query = 'SELECT file_name 
+      FROM resume
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
     $record = mysqli_fetch_assoc( $result );
-
-    if( !$record['photo'] ) $record['photo'] = $camera;
-    
-    break;
-  
-  case 'skill':
-    
-    $query = 'SELECT photo 
-      FROM skills
-      WHERE id = '.$_GET['id'].'
-      LIMIT 1';
-    $result = mysqli_query( $connect, $query );
-    $record = mysqli_fetch_assoc( $result );
-  
-      if( !$record['photo'] ) $record['photo'] = $camera;
       
-      break;
-
-      case 'social':
-    
-        $query = 'SELECT photo 
-          FROM socials
-          WHERE id = '.$_GET['id'].'
-          LIMIT 1';
-        $result = mysqli_query( $connect, $query );
-        $record = mysqli_fetch_assoc( $result );
-      
-          if( !$record['photo'] ) $record['photo'] = $camera;
+      if( !$record['file_name'] ) $record['file_name'] = $camera;
           
-          break;
-      
-  
-      
+       break;
       
 }
 
 include 'includes/wideimage/WideImage.php';
 
-$data = base64_decode( explode( ',', $record['photo'] )[1] );
+$data = base64_decode( explode( ',', $record['file_name'] )[1] );
 $img = WideImage::loadFromString( $data );
 
 if( isset( $_GET['width'] ) and isset( $_GET['height'] ) )
@@ -72,4 +45,4 @@ if( isset( $_GET['width'] ) and isset( $_GET['height'] ) )
 
 }
 
-$img->output( 'png', 8 );
+$img->output( 'pdf', 8 );

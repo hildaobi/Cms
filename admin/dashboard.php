@@ -22,6 +22,26 @@ include( 'includes/header.php' );
     </a>
   </li>
   <li>
+    <a href="skills.php">
+      Manage Skills
+    </a>
+  </li>
+  <li>
+    <a href="education.php">
+      Manage Education
+    </a>
+  </li>
+  <li>
+    <a href="contact.php">
+      Manage Contact
+    </a>
+  </li>
+  <li>
+    <a href="socials.php">
+      Manage Socials
+    </a>
+  </li>
+  <li>
     <a href="logout.php">
       Logout
     </a>
