@@ -3,15 +3,16 @@
 include( 'includes/database.php' );
 include( 'includes/config.php' );
 include( 'includes/functions.php' );
-
+//ensuring this page cannot be access without log in
 secure();
-
+//It checks that there is a field with name title
 if( isset( $_POST['title'] ) )
 {
-  
+  //if statement
   if( $_POST['title'] )
   {
-    
+    //query to insert in database
+    //.mysqli_real_escape_string function prevents sql injection
     $query = 'INSERT INTO education (
         title,
         school,
@@ -28,7 +29,7 @@ if( isset( $_POST['title'] ) )
     set_message( 'Education has been added' );
     
   }
-  
+  //redirects to another page
   header( 'Location: education.php' );
   die();
   
@@ -37,7 +38,7 @@ if( isset( $_POST['title'] ) )
 include( 'includes/header.php' );
 
 ?>
-
+<!-- creating form with it's content-->
 <h2>Add Education</h2>
 
 <form method="post">

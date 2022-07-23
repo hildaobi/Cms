@@ -1,10 +1,10 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Patua+One&display=swap');
 a:link,
 a:active,
 a:hover,
 a:visited {
   text-decoration: none;
-  color: #FF8500;
+  color: teal;
 }
 
 table {
@@ -19,9 +19,13 @@ th img {
   margin: 0;
   padding: 0;
 }
+tr:nth-child(odd) {
+  background-color: #b5d7d9;
+
+}
 
 td, th {
-  border: 1px solid #ccc;
+  border: 0px;
   padding: 10px;
 }
 
@@ -30,7 +34,7 @@ th {
 }
 
 .error {
-  color: #f00;
+  color:teal;
   text-align: center;
 }
 
@@ -72,7 +76,7 @@ input {
 
 input[type=submit] {
   border: 0;
-  background-color: #eb741d;
+  background-color: teal;
   color: #fff;
   padding: 10px 10px;
   font-size: 110%;
@@ -91,17 +95,27 @@ input[type=submit] {
   color: #fff;
 }
 #dashboard li {
-  background-color: #eb741d;
+  background-color: teal;
+  color: #fff;
   display: inline-block;
   width: 22%;
   margin: 1%;
-  padding: 2%;
+  padding:  15px 25px;
+  text-decoration: none;
   box-sizing: border-box;
   text-align: center;
   list-style: none;
   list-style-position: inside;
   border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px  #ededed;
+
 }
 #dashboard i {
   margin-bottom: 5px;
+}
+
+#footer{
+    background-color:black;
+    color:white;  
 }

@@ -25,7 +25,7 @@ include( 'includes/header.php' );
 
 $query = 'SELECT *
   FROM socials
-  ORDER BY title DESC';
+  ORDER BY id ASC';
 $result = mysqli_query( $connect, $query );
 
 ?>

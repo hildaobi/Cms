@@ -1,10 +1,10 @@
 <?php
-
+//creating a variable that stores our database connections
 $connect = mysqli_connect( 
-    "sql309.epizy.com", 
-    "epiz_31404745", 
-    "24lt0pTvMXgZ", 
-    "epiz_31404745_sample" 
+    "sql300.epizy.com", 
+    "epiz_32221100", 
+    "R2ui9HFcp7Hi8", 
+    "epiz_32221100_cms" 
 );
 
 mysqli_set_charset( $connect, 'UTF8' );

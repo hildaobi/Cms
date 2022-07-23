@@ -3,12 +3,12 @@
 include( 'includes/database.php' );
 include( 'includes/config.php' );
 include( 'includes/functions.php' );
-
+//ensures login before accessing this page
 secure();
-
+//checks  if id  index exist
 if( !isset( $_GET['id'] ) )
 {
-  
+  //redirects to another page
   header( 'Location: projects.php' );
   die();
   
@@ -22,7 +22,7 @@ if( isset( $_FILES['photo'] ) )
   
     if( $_FILES['photo']['error'] == 0 )
     {
-
+// test within certain file extension type till it gets a matche
       switch( $_FILES['photo']['type'] )
       {
         case 'image/png': 
@@ -36,7 +36,7 @@ if( isset( $_FILES['photo'] ) )
           $type = 'gif'; 
           break;      
       }
-
+   //query that updates the database
       $query = 'UPDATE projects SET
         photo = "data:image/'.$type.';base64,'.base64_encode( file_get_contents( $_FILES['photo']['tmp_name'] ) ).'"
         WHERE id = '.$_GET['id'].'
@@ -46,48 +46,49 @@ if( isset( $_FILES['photo'] ) )
     }
     
   }
-  
+     // display message
   set_message( 'Project photo has been updated' );
-
+ //redirects to another page
   header( 'Location: projects.php' );
   die();
   
 }
 
-
+//checks  if id  index exist
 if( isset( $_GET['id'] ) )
 {
   
   if( isset( $_GET['delete'] ) )
   {
-    
+    //query that updates the database
     $query = 'UPDATE projects SET
       photo = ""
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
-    
+    // display message
     set_message( 'Project photo has been deleted' );
-    
+     //redirects to another page
     header( 'Location: projects.php' );
     die();
     
   }
-  
+   //query that gets data from the database
   $query = 'SELECT *
     FROM projects
     WHERE id = '.$_GET['id'].'
     LIMIT 1';
+     //storing query result in a variable
   $result = mysqli_query( $connect, $query );
-  
+  //returns the number of rows present in the result set
   if( !mysqli_num_rows( $result ) )
   {
-    
+     //redirects to another page
     header( 'Location: projects.php' );
     die();
     
   }
-  
+
   $record = mysqli_fetch_assoc( $result );
   
 }

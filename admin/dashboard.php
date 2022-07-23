@@ -9,7 +9,7 @@ secure();
 include( 'includes/header.php' );
 
 ?>
-
+<!--Creating dashboard links-->
 <ul id="dashboard">
   <li>
     <a href="projects.php">
@@ -31,11 +31,7 @@ include( 'includes/header.php' );
       Manage Education
     </a>
   </li>
-  <li>
-    <a href="contact.php">
-      Manage Contact
-    </a>
-  </li>
+ 
   <li>
     <a href="socials.php">
       Manage Socials

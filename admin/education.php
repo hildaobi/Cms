@@ -8,21 +8,21 @@ secure();
 
 if( isset( $_GET['delete'] ) )
 {
-  
+ //query to delete data from database 
   $query = 'DELETE FROM education
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
     
   set_message( 'Education has been deleted' );
-  
+  //redirects to a new page
   header( 'Location: education.php' );
   die();
   
 }
 
 include( 'includes/header.php' );
-
+//getting all column data in the database
 $query = 'SELECT *
   FROM education
   ORDER BY start_date ASC';
@@ -31,8 +31,9 @@ $result = mysqli_query( $connect, $query );
 ?>
 
 <h2>Manage Education</h2>
-
-<table>
+<!--creating table-->
+<table >
+  
   <tr>
     <th align="center">ID</th>
     <th align="left">Title</th>
@@ -43,7 +44,9 @@ $result = mysqli_query( $connect, $query );
     <th></th>
     <th></th>
   </tr>
+  <!--looping throughdata fetched from the database and inserting into table rows-->
   <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
+    
     <tr>
       <td align="center"><?php echo $record['id']; ?></td>
       <td align="left">

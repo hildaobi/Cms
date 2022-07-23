@@ -11,7 +11,8 @@ if( isset( $_POST['title'] ) )
   
   if( $_POST['title'] and $_POST['content'] )
   {
-    
+    //querying the database
+    //.mysqli_real_escape_string used to prevent my sql injections
     $query = 'INSERT INTO projects (
         title,
         content,
@@ -26,11 +27,11 @@ if( isset( $_POST['title'] ) )
          "'.mysqli_real_escape_string( $connect, $_POST['url'] ).'"
       )';
     mysqli_query( $connect, $query );
-    
+    //display message
     set_message( 'Project has been added' );
     
   }
-  
+  //redirecting 
   header( 'Location: projects.php' );
   die();
   
@@ -39,7 +40,7 @@ if( isset( $_POST['title'] ) )
 include( 'includes/header.php' );
 
 ?>
-
+<!--form creation -->
 <h2>Add Project</h2>
 
 <form method="post">

@@ -61,7 +61,7 @@ if( isset( $_GET['id'] ) )
   if( isset( $_GET['delete'] ) )
   {
     
-    $query = 'UPDATEskills SET
+    $query = 'UPDATE skills SET
       photo = ""
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
